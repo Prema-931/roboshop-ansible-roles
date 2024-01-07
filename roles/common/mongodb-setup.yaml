@@ -5,8 +5,8 @@
 
 - name: Install mongodb client
   ansible.builtin.package:
-  name: mongodb-org-shell
-  state: present
+   name: mongodb-org-shell
+   state: present
 
 - name: "get the catalogue entries count"
   ansible.builtin.shell:  mongo --host {{MONGODB_HOST}} --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
