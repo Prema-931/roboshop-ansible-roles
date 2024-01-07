@@ -1,5 +1,5 @@
--name: "install {{component}}"
-hosts: "{{component}}"
+- name: "install {{component}}"
+  hosts: "{{component}}"
 
-roles:
-- "{{component}}"
+  roles:
+  - "{{component}}"
