@@ -15,8 +15,12 @@
     state: restarted
     enabled: yes
 
-- name: create rabbitmq user
-  ansible.builtin.command: rabbitmqctl change_password roboshop roboshop123
+- name: |-
+      Add user to server and assign full access control on / vhost.
+      The user might have permission rules for other vhost but you don't care.
+  community.rabbitmq.rabbitmq_user:
+    user: roboshop
+    password: roboshop123
 
 - name: set permissions
   ansible.builtin.command: rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
